@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 // Using Express
-app.post("/my/webhook/url", function(req, res) {
+app.post('/webhook', function(req, res) {
     //validate event
     const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
     if (hash == req.headers['x-paystack-signature']) {
